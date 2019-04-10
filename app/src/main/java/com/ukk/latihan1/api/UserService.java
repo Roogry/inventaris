@@ -24,6 +24,7 @@ public interface UserService {
             @Field("password") String password
     );
 
+    //inventaris
     @GET("inventaris.php")
     Call<ResponseInventaris> getInventaris();
 
@@ -149,12 +150,14 @@ public interface UserService {
     @GET("peminjam.php")
     Call<ResponsePeminjam> getPeminjam();
 
+    //peminjam
     @FormUrlEncoded
     @POST("peminjam.php")
     Call<String>setPeminjam(
             @Field("nama") String nama,
             @Field("username") String username,
             @Field("password") String password,
+            @Field("alamat") String alamat,
             @Field("status") String status
     );
 
@@ -165,6 +168,7 @@ public interface UserService {
             @Field("nama") String nama,
             @Field("username") String username,
             @Field("password") String password,
+            @Field("alamat") String alamat,
             @Field("status") String status
     );
 
@@ -181,6 +185,7 @@ public interface UserService {
             @Field("dTo") String dTo
     );
 
+    //petugas
     @GET("petugas.php")
     Call<ResponsePetugas>getPetugas();
 

@@ -75,6 +75,20 @@
                 android:textSize="14sp" />
         </android.support.design.widget.TextInputLayout>
 
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/delapan">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edtAlamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Alamat Peminjam"
+                android:paddingVertical="@dimen/enam_belas"
+                android:textSize="14sp" />
+        </android.support.design.widget.TextInputLayout>
+
         <com.jaredrummler.materialspinner.MaterialSpinner
             android:id="@+id/spStatus"
             android:layout_width="match_parent"

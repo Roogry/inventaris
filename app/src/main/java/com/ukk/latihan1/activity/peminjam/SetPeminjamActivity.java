@@ -18,7 +18,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SetPeminjamActivity extends AppCompatActivity {
-    EditText edtNama, edtUsername, edtPassword;
+    EditText edtNama, edtUsername, edtPassword, edtAlamat;
     MaterialSpinner spStatus;
     Button btnTambah;
 
@@ -36,14 +36,15 @@ public class SetPeminjamActivity extends AppCompatActivity {
                 setPeminjam(edtNama.getText().toString(),
                         edtUsername.getText().toString(),
                         edtPassword.getText().toString(),
+                        edtAlamat.getText().toString(),
                         String.valueOf(spStatus.getSelectedIndex() + 1));
             }
         });
     }
 
-    private void setPeminjam(String nama, String username, String password, String status) {
+    private void setPeminjam(String nama, String username, String password, String alamat, String status) {
         if(!nama.isEmpty() && !username.isEmpty() && !password.isEmpty()) {
-            Call<String> call = userService.setPeminjam(nama,username,password,status);
+            Call<String> call = userService.setPeminjam(nama,username,password,alamat,status);
             call.enqueue(new Callback<String>() {
                 @Override
                 public void onResponse(Call<String> call, Response<String> response) {
@@ -64,6 +65,7 @@ public class SetPeminjamActivity extends AppCompatActivity {
         edtNama = findViewById(R.id.edtNama);
         edtUsername = findViewById(R.id.edtUsername);
         edtPassword = findViewById(R.id.edtPassword);
+        edtAlamat = findViewById(R.id.edtAlamat);
         btnTambah = findViewById(R.id.btnTambah);
         spStatus = findViewById(R.id.spStatus);
 

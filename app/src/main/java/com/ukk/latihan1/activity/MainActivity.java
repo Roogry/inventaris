@@ -12,6 +12,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity
     RecyclerView rvInventaris;
     FloatingActionButton fab;
     SwipeRefreshLayout swipe;
+    SearchView sv;
+
     private String level, nama;
 
     AdapterInventaris adapterInventaris;
@@ -87,6 +90,34 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        sv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sv.setIconified(false);
+            }
+        });
+        sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                if (query.isEmpty()) {
+                    getInventaris();
+                }else {
+                    getInventaris(query);
+                }
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if (newText.isEmpty()) {
+                    getInventaris();
+                }else {
+                    getInventaris(newText);
+                }
+                return false;
+            }
+        });
+
         getInventaris();
     }
 
@@ -117,11 +148,33 @@ public class MainActivity extends AppCompatActivity
         swipe.setRefreshing(false);
     }
 
+    private void getInventaris(String keyword) {
+        swipe.setRefreshing(true);
+        Call<ResponseInventaris> call = userService.getInventaris(keyword);
+        call.enqueue(new Callback<ResponseInventaris>() {
+            @Override
+            public void onResponse(Call<ResponseInventaris> call, Response<ResponseInventaris> response) {
+                listInventaris = response.body().getListItem();
+
+                adapterInventaris = new AdapterInventaris(MainActivity.this, listInventaris);
+                rvInventaris.setAdapter(adapterInventaris);
+                adapterInventaris.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseInventaris> call, Throwable t) {
+
+            }
+        });
+        swipe.setRefreshing(false);
+    }
+
     private void initLayout() {
         txtLogout = findViewById(R.id.txtLogout);
         swipe = findViewById(R.id.swipe);
         rvInventaris = findViewById(R.id.rv);
         rvInventaris.setLayoutManager(new LinearLayoutManager(this));
+        sv = findViewById(R.id.sv);
 
         level = SharedPref.getPref(MainActivity.this, KeyVal.idLevel);
         nama = SharedPref.getPref(MainActivity.this, KeyVal.nama);
