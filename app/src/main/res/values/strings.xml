@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">latihan1</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="status_peminjam">
+        <item>Guru</item>
+        <item>Pegawai</item>
+        <item>Siswa</item>
+    </string-array>
+
+    <string-array name="kondisi">
+        <item>Baru</item>
+        <item>Baik</item>
+        <item>Kurang Baik</item>
+        <item>Rusak</item>
+    </string-array>
+
+    <string-array name="keterangan">
+        <item>Barang Pakai Habis</item>
+        <item>Barang Pinjam</item>
+    </string-array>
+</resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group>
+        <item
+            android:id="@+id/navPeminjaman"
+            android:icon="@drawable/ic_pinjaman"
+            android:title="Pinjaman" />
+
+        <item
+            android:id="@+id/navPengembalian"
+            android:icon="@drawable/ic_kembali"
+            android:title="Pengembalian" />
+    </group>
+
+    <item android:title="Manajemen">
+        <menu>
+            <item
+                android:id="@+id/navPetugas"
+                android:icon="@drawable/ic_petugas"
+                android:title="Petugas" />
+
+            <item
+                android:id="@+id/navPeminjam"
+                android:icon="@drawable/ic_peminjam"
+                android:title="Peminjam" />
+
+            <item
+                android:id="@+id/navJenis"
+                android:icon="@drawable/ic_jenis"
+                android:title="Jenis" />
+
+            <item
+                android:id="@+id/navRuang"
+                android:icon="@drawable/ic_ruang"
+                android:title="Ruang" />
+        </menu>
+    </item>
+
+    <item android:title="Laporan">
+        <menu>
+            <item
+                android:id="@+id/navReport"
+                android:icon="@drawable/ic_report"
+                android:title="Report" />
+        </menu>
+    </item>
+
+</menu>
