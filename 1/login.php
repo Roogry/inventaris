@@ -9,6 +9,7 @@
 
     $data = array();
 
+    $data["listItem"]["nip_nis"] = "";
     $data["listItem"]["alamat"] = "";
     $data["listItem"]["status_peminjam"] = "";
     $data["listItem"]["id_level"] = "3";
@@ -17,6 +18,7 @@
         while($row = $peminjam->fetch(PDO::FETCH_ASSOC)){
             $data["listItem"]["id"] = $row['id_peminjam'];
             $data["listItem"]["nama"] = $row['nama_peminjam'];
+            $data["listItem"]["nip_nis"] = $row['nip_nis'];
             $data["listItem"]["username"] = $row['username'];
             $data["listItem"]["password"] = $row['password'];
             $data["listItem"]["alamat"] = $row['alamat'];

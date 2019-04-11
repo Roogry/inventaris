@@ -28,10 +28,7 @@ SELECT(
 ) AS petugas,
 (
  	SELECT COUNT(*) FROM inventaris
-) AS inventaris,
-(
-    SELECT dto
-)AS dto
+) AS inventaris
 ```
 
 >**kembalikan peminjaman after update**

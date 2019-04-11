@@ -12,10 +12,11 @@
     $lastId = $con->query("SELECT MAX(id_inventaris) FROM inventaris")->fetch();
 
     $kode = "IS";
-    for($i=0; $i<4-strlen($lastId[0]); $i++){
+    $id = ++$lastId[0];
+    for($i=0; $i<4-strlen($id); $i++){
         $kode .= "0";
     }
-    $kode .= ++$lastId[0];
+    $kode .= $id;
 
     $setInvent = $con->query("INSERT INTO inventaris (nama, kondisi, keterangan, jumlah, id_jenis, id_ruang, kode_inventaris, id_petugas) VALUES ('$nama', '$kondisi', '$ket', '$jumlah', '$idJenis', '$idRuang', '$kode', '$idPetugas') ");
 

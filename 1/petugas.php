@@ -10,7 +10,7 @@
         }
 
         echo json_encode($data);
-    }else if(isset($_POST['id'])){
+    }else if(isset($_POST['id']) && isset($_POST['nama'])){
         $id = $_POST['id'];
         $nama = $_POST['nama'];
         $username = $_POST['username'];
@@ -24,6 +24,16 @@
             echo json_encode("Gagal Mengubah");
         }
 
+    }else if(isset($_POST['id'])){
+        $id = $_POST['id'];
+
+        $del = $con->query("DELETE FROM petugas WHERE id_petugas ='$id'");
+
+        if($del){
+            echo json_encode("Berhasil Menghapus");
+        }else{
+            echo json_encode("Gagal Menghapus");
+        }
     }else{
         $nama = $_POST['nama'];
         $username = $_POST['username'];
