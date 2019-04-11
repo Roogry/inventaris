@@ -54,7 +54,6 @@ public class PutInventarisActivity extends AppCompatActivity {
 
         getInvent(idInvent);
 
-
         spKeterangan.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, String item) {

@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity
                 sv.setIconified(false);
             }
         });
+
         sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

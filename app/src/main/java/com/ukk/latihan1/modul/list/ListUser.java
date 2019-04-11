@@ -10,6 +10,9 @@ public class ListUser {
 	@SerializedName("nama")
 	private String nama;
 
+	@SerializedName("nip_nis")
+	private String nip_nis;
+
 	@SerializedName("id_level")
 	private String idLevel;
 
@@ -39,6 +42,14 @@ public class ListUser {
 
 	public String getNama(){
 		return nama;
+	}
+
+	public String getNip_nis() {
+		return nip_nis;
+	}
+
+	public void setNip_nis(String nip_nis) {
+		this.nip_nis = nip_nis;
 	}
 
 	public void setIdLevel(String idLevel){

@@ -90,6 +90,7 @@ public class AdapterPeminjam extends RecyclerView.Adapter<AdapterPeminjam.ViewHo
                 Intent intent = new Intent(ctx, PutPeminjamActivity.class);
                 intent.putExtra(KeyVal.id, peminjam.getIdPeminjam());
                 intent.putExtra(KeyVal.nama, peminjam.getNamaPeminjam());
+                intent.putExtra(KeyVal.nip, peminjam.getNipNis());
                 intent.putExtra(KeyVal.username, peminjam.getUsername());
                 intent.putExtra(KeyVal.password, peminjam.getPassword());
                 intent.putExtra(KeyVal.statusPeminjam, peminjam.getStatusPeminjam());

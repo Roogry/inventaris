@@ -10,6 +10,9 @@ public class ListPeminjam {
 	@SerializedName("nama_peminjam")
 	private String namaPeminjam;
 
+	@SerializedName("nip_nis")
+	private String nipNis;
+
 	@SerializedName("id_peminjam")
 	private String idPeminjam;
 
@@ -36,6 +39,14 @@ public class ListPeminjam {
 
 	public String getNamaPeminjam(){
 		return namaPeminjam;
+	}
+
+	public String getNipNis() {
+		return nipNis;
+	}
+
+	public void setNipNis(String nipNis) {
+		this.nipNis = nipNis;
 	}
 
 	public void setIdPeminjam(String idPeminjam){

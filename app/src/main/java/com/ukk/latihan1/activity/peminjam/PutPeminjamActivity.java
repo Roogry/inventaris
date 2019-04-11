@@ -19,13 +19,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class PutPeminjamActivity extends AppCompatActivity {
-    EditText edtNama, edtUsername, edtPassword, edtAlamat;
+    EditText edtNama, edtNip, edtUsername, edtPassword, edtAlamat;
     MaterialSpinner spStatus;
     Button btnUpdate;
 
     UserService userService;
 
-    String id, nama, username, password, status, alamat;
+    String id, nama, nip, username, password, status, alamat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,7 @@ public class PutPeminjamActivity extends AppCompatActivity {
 
         id = getIntent().getStringExtra(KeyVal.id);
         nama = getIntent().getStringExtra(KeyVal.nama);
+        nip = getIntent().getStringExtra(KeyVal.nip);
         username = getIntent().getStringExtra(KeyVal.username);
         password = getIntent().getStringExtra(KeyVal.password);
         status = getIntent().getStringExtra(KeyVal.statusPeminjam);
@@ -47,6 +48,7 @@ public class PutPeminjamActivity extends AppCompatActivity {
             public void onClick(View v) {
                 setPeminjam(id,
                         edtNama.getText().toString(),
+                        edtNip.getText().toString(),
                         edtUsername.getText().toString(),
                         edtPassword.getText().toString(),
                         edtAlamat.getText().toString(),
@@ -57,6 +59,7 @@ public class PutPeminjamActivity extends AppCompatActivity {
 
     private void setLayout() {
         edtNama.setText(nama);
+        edtNip.setText(nip);
         edtUsername.setText(username);
         edtPassword.setText(password);
         edtAlamat.setText(alamat);
@@ -65,9 +68,9 @@ public class PutPeminjamActivity extends AppCompatActivity {
         spStatus.setSelectedIndex(selected);
     }
 
-    private void setPeminjam(String id, String nama, String username, String password, String alamat, String status) {
+    private void setPeminjam(String id, String nama, String nip, String username, String password, String alamat, String status) {
         if(!nama.isEmpty() && !username.isEmpty() && !password.isEmpty()) {
-            Call<String> call = userService.putPeminjam(id, nama, username, password, alamat, status);
+            Call<String> call = userService.putPeminjam(id, nama,nip, username, password, alamat, status);
             call.enqueue(new Callback<String>() {
                 @Override
                 public void onResponse(Call<String> call, Response<String> response) {
@@ -86,6 +89,7 @@ public class PutPeminjamActivity extends AppCompatActivity {
 
     private void initLayout() {
         edtNama = findViewById(R.id.edtNama);
+        edtNip = findViewById(R.id.edtNip);
         edtUsername = findViewById(R.id.edtUsername);
         edtPassword = findViewById(R.id.edtPassword);
         edtAlamat = findViewById(R.id.edtAlamat);

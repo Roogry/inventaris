@@ -124,37 +124,15 @@ public interface UserService {
             @Field("id") String id
     );
 
-    @FormUrlEncoded
-    @POST("setPinjam.php")
-    Call<String>pinjam(
-            @Field("id_invent") String id_invent,
-            @Field("jumlah") String jumlah,
-            @Field("id_peminjam") String id_peminjam
-    );
-
-    @FormUrlEncoded
-    @POST("putKembali.php")
-    Call<String>kembali(
-            @Field("kode") String kode
-    );
-
-    @GET("peminjaman.php")
-    Call<ResponsePeminjaman> getPeminjaman();
-
-    @FormUrlEncoded
-    @POST("peminjaman.php")
-    Call<ResponsePeminjaman> getPeminjaman(
-            @Field("id") String id
-    );
-
+    //peminjam
     @GET("peminjam.php")
     Call<ResponsePeminjam> getPeminjam();
 
-    //peminjam
     @FormUrlEncoded
     @POST("peminjam.php")
     Call<String>setPeminjam(
             @Field("nama") String nama,
+            @Field("nip") String nip,
             @Field("username") String username,
             @Field("password") String password,
             @Field("alamat") String alamat,
@@ -166,6 +144,7 @@ public interface UserService {
     Call<String>putPeminjam(
             @Field("id") String id,
             @Field("nama") String nama,
+            @Field("nip") String nip,
             @Field("username") String username,
             @Field("password") String password,
             @Field("alamat") String alamat,
@@ -173,16 +152,9 @@ public interface UserService {
     );
 
     @FormUrlEncoded
-    @POST("delPeminjam.php")
+    @POST("peminjam.php")
     Call<String> delPeminjam(
             @Field("id") String id
-    );
-
-    @FormUrlEncoded
-    @POST("report.php")
-    Call<ResponseReport>getReport(
-            @Field("dFrom") String dFrom,
-            @Field("dTo") String dTo
     );
 
     //petugas
@@ -207,9 +179,40 @@ public interface UserService {
     );
 
     @FormUrlEncoded
-    @POST("delPetugas.php")
+    @POST("petugas.php")
     Call<String> delPetugas(
             @Field("id") String id
+    );
+
+    //another
+    @FormUrlEncoded
+    @POST("setPinjam.php")
+    Call<String>pinjam(
+            @Field("id_invent") String id_invent,
+            @Field("jumlah") String jumlah,
+            @Field("id_peminjam") String id_peminjam
+    );
+
+    @FormUrlEncoded
+    @POST("putKembali.php")
+    Call<String>kembali(
+            @Field("kode") String kode
+    );
+
+    @GET("peminjaman.php")
+    Call<ResponsePeminjaman> getPeminjaman();
+
+    @FormUrlEncoded
+    @POST("peminjaman.php")
+    Call<ResponsePeminjaman> getPeminjaman(
+            @Field("id") String id
+    );
+
+    @FormUrlEncoded
+    @POST("report.php")
+    Call<ResponseReport>getReport(
+            @Field("dFrom") String dFrom,
+            @Field("dTo") String dTo
     );
 
 }

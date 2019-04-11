@@ -4,6 +4,7 @@ package com.ukk.latihan1.utils;
 public class KeyVal {
     public static String logined = "logined";
     public static String nama = "nama";
+    public static String nip = "nip";
     public static String idLevel = "idLevel";
     public static String id = "id";
     public static String alamat = "alamat";

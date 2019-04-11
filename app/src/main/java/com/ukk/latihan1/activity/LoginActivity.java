@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
                     SharedPref.setLogined(LoginActivity.this);
                     SharedPref.putPref(LoginActivity.this, KeyVal.id, user.getId());
                     SharedPref.putPref(LoginActivity.this, KeyVal.nama, user.getNama());
+                    SharedPref.putPref(LoginActivity.this, KeyVal.nip, user.getNip_nis());
                     SharedPref.putPref(LoginActivity.this, KeyVal.username, user.getUsername());
                     SharedPref.putPref(LoginActivity.this, KeyVal.idLevel, user.getIdLevel());
                     SharedPref.putPref(LoginActivity.this, KeyVal.alamat, user.getAlamat());
