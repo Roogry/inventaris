@@ -40,7 +40,7 @@ public class PutInventarisActivity extends AppCompatActivity {
     List<ListRuang> listRuang;
     ListInventaris inventaris;
 
-    String idInvent, keterangan = "Barang Pakai Habis";
+    String idInvent;
     String[] arrKet, arrKondisi;
     int selectedJenis = 0, selectedRuang = 0;
 
@@ -54,15 +54,6 @@ public class PutInventarisActivity extends AppCompatActivity {
 
         getInvent(idInvent);
 
-
-        spKeterangan.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
-            @Override
-            public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
-                keterangan = item;
-                Log.e("keterangan : ", keterangan);
-            }
-        });
-
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,7 +63,7 @@ public class PutInventarisActivity extends AppCompatActivity {
                         listIJenis.get(spJenis.getSelectedIndex()).getIdJenis(),
                         listRuang.get(spRuang.getSelectedIndex()).getIdRuang(),
                         String.valueOf(spKondisi.getSelectedIndex() + 1),
-                        keterangan
+                        spKeterangan.getItems().get(spKeterangan.getSelectedIndex()).toString())
                 );
             }
         });
